@@ -6,20 +6,19 @@ import { PiPaperPlaneTilt } from "react-icons/pi";
 import { GoSmiley } from "react-icons/go";
 
 type Post = {
-    username: string
     image: string
     postId: number
 }
 
-function Post({ username, image, postId }: Post) {
+function Post({ image, postId }: Post) {
     return (
         <div className="py-2 border-2 border-[#c4c4c4]">
-            <Link href={'/user/' + postId}>
-                <div className="ml-5 mb-3 flex gap-3 items-center ">
-                    <div className="w-10 h-10 bg-[#c4c4c4] rounded-full"></div>
-                    <span>{username}</span>
-                </div>
-            </Link>
+
+            <div className="ml-5 mb-3 flex gap-3 items-center ">
+                <div className="w-10 h-10 bg-[#c4c4c4] rounded-full"></div>
+                <span>Bober Kurwa</span>
+            </div>
+
 
             <img src={image} alt="post" className="w-full h-[600px] object-cover" />
 
@@ -27,9 +26,11 @@ function Post({ username, image, postId }: Post) {
                 <button>
                     <IoMdHeartEmpty size={30} />
                 </button>
-                <button>
-                    <TbMessageCircle size={30} />
-                </button>
+                <Link href={'/comments/' + postId}>
+                    <button>
+                        <TbMessageCircle size={30} />
+                    </button>
+                </Link>
                 <button>
                     <PiPaperPlaneTilt size={30} />
                 </button>
